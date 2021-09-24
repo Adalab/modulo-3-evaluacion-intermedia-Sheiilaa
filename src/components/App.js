@@ -1,3 +1,4 @@
+import { waitForElementToBeRemoved } from '@testing-library/dom';
 import { useEffect, useState } from 'react';
 import data from '../data/club.json'
 import '../styles/App.scss';
@@ -5,13 +6,43 @@ import '../styles/App.scss';
 function App() {
   const [club, setClub ]=useState(data);
   //Variables para guardar nuevos estados de los inputs
-  const[ newclub, setNewClub ]=useState('');
-   
-   const handleNewClub=(ev)=>{
-     setNewClub(ev.currentTarget.value);
+  const[ newClub, setNewClub ]=useState({
+    name: '',
+    openOnWeekdays: false,
+    openOnWeekend: false,
 
+  });
+
+   const handleNewClub=(ev)=>{
+   if(ev.currentTarget.id === 'new'){
+     setNewClub({
+       ...newClub,
+       new: ev.currentTarget.value,
+     });
+   }else if(ev.currentTarget.id=== 'option1'){
+     setNewClub({
+       ...newClub,
+       openOnWeekdays: ev.currentTarget.checked,
+     });
+   }else if(ev.currentTarget.id=== 'option2'){
+    setNewClub({
+      ...newClub,
+      openOnWeekend: ev.currentTarget.checked,
+    });
+    }
    };
 
+  const handleNewClubButton=(ev)=>{
+    ev.preventDefault();
+    if (newClub.name !== '') {
+      setClub([...club, newClub]);
+    }
+    setNewClub({
+      name: '',
+      openOnWeekdays: false,
+      openOnWeekend: false,
+    });
+}
 
   const renderClub=()=>{
     return data.map((club, index)=>{
@@ -47,17 +78,16 @@ function App() {
         <input
             className="form__input"
             type="text"
-            name="newclub"
-            id="newclub"
-            value={newclub}
+            name="new"
+            id="new"
             onChange={handleNewClub}
           />
           <label htmlFor="option1">¿Abre entre semana?</label>
-          <input type="checkbox" name="option1" id="option1"/>
+          <input type="checkbox" name="option1" id="option1" onChange={handleNewClub} checked={newClub.openOnWeekdays}/>
           <label htmlFor="option2">¿Abre los fines de  semana?</label>
-          <input type="checkbox" name="option2" id="option2"/>
+          <input type="checkbox" name="option2" id="option2" onChange={handleNewClub} checked={newClub.openOnWeekend}/>
 
-          <input type="submit" value="añadir" className="new_club"/>
+          <input type="submit" value="añadir" className="new_club" onClick={handleNewClubButton}/>
 
           
         </form>
