@@ -1,7 +1,30 @@
 import { useEffect, useState } from 'react';
+import data from '../data/club.json'
 import '../styles/App.scss';
 
 function App() {
+  const [club, setClub ]=useState(data);
+  //Variables para guardar nuevos estados de los inputs
+  const[ newclub, setNewClub ]=useState('');
+   
+   const handleNewClub=(ev)=>{
+     setNewClub(ev.currentTarget.value);
+
+   };
+
+
+  const renderClub=()=>{
+    return data.map((club, index)=>{
+      return(
+        <li key={index} id={index} className="list__club">
+        <h3 className="name__club">{club.name}</h3>
+        <p className="week__day">Abierto entre semana: {club.openOnWeekdays === true ? 'si' : 'No'}</p>
+        <p className="week__end"> abierto los fines de semana: {club.openOnWeekend === true ? 'si' : 'No' }</p>
+        </li>
+
+      )
+    })
+  }
   return (
     <div>
       <header>
@@ -16,16 +39,18 @@ function App() {
       </form>
       </header>
       <main>
-      <ul className="list__club"></ul>
+      <ul className="list__club">{renderClub()}</ul>
       <section>
         <h2 className="main__tittle">Añadir un nuevo club</h2>
         <form className="main__form">
           <label className="form__label-club"> Nombre del club </label>
         <input
             className="form__input"
-            autoComplete='off'
-            type='search'
-            name='search'
+            type="text"
+            name="newclub"
+            id="newclub"
+            value={newclub}
+            onChange={handleNewClub}
           />
           <label htmlFor="option1">¿Abre entre semana?</label>
           <input type="checkbox" name="option1" id="option1"/>
