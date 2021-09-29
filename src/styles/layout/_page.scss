@@ -1,7 +1,7 @@
 .list__club {
   padding-bottom: 10px;
-  border: solid 2px #9b3e73;
-  width: 70vw;
+  border: solid 3px #9b3e73;
+  width: 71vw;
   margin-bottom: 10px;
   padding-left: 15px;
   padding-top: 10px;
@@ -11,13 +11,47 @@
   font-size: 20px;
   color: #a52172;
 }
+.button__delete {
+  width: 5vw;
+  margin-top: 5px;
+  border-radius: 50%;
+  background-color: #e0bee5;
+  border: solid 2px #9b3e73;
+  color: #6b136e;
+  font-weight: 900;
+  &:hover {
+    transform: scale(1.2);
+    background-color: #c871f0;
+  }
+}
+
 .main__section {
   background-color: #e0bee5;
-  border: solid 4px #c1e3ff;
-  width: 70vw;
+  border: solid 3px #c1e3ff;
+  width: 69vw;
   margin-bottom: 10px;
   padding-left: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right: 10px;
+}
+.main__tittle {
+  font-size: 26px;
+  color: #6b136e;
+}
+.form__input {
+  width: 40vw;
+}
+.new_club {
+  margin-top: 5px;
+  margin-left: 8px;
+  font-weight: 600;
+  text-align: center;
+  width: 25vw;
+  background-color: #c1e3ff;
+  border: solid 2px #9b3e73;
+  &:hover {
+    transform: scale(1.1);
+    background-color: #71b6ee;
+  }
 }
