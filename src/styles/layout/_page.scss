@@ -12,7 +12,6 @@
   color: #a52172;
 }
 .button__delete {
-  width: 5vw;
   margin-top: 5px;
   border-radius: 50%;
   background-color: #e0bee5;
@@ -43,11 +42,11 @@
   width: 40vw;
 }
 .new_club {
-  margin-top: 5px;
-  margin-left: 8px;
+  margin: auto;
+
   font-weight: 600;
   text-align: center;
-  width: 25vw;
+  width: 150px;
   background-color: #c1e3ff;
   border: solid 2px #9b3e73;
   &:hover {
