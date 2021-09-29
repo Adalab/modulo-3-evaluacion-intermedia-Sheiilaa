@@ -1,1 +1,21 @@
-
+body {
+  background-color: #e5efff;
+  font-family: "Varela Round", sans-serif;
+  padding-left: 20px;
+  list-style: none;
+}
+.header_form {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.header__title {
+  text-align: center;
+  color: #a30061;
+}
+.header_form__label {
+  padding-right: 10px;
+}
+.header_form__select {
+  width: 250px;
+  padding-left: 20px;
+}
