@@ -79,9 +79,9 @@ function App() {
       <form className="header_form">
         <label htmlFor="club" className="header_form__label">Mostrar </label>
         <select value ={filter} onChange={handleFilter} className="header_form__select">
-          <option>Todos</option>
-          <option> Los que abren entre semana</option>
-          <option>Los que abren el fin de semana</option>
+          <option value="all">Todos</option>
+          <option value="openOnWeekDays"> Los que abren entre semana</option>
+          <option value="openOnWeekend">Los que abren el fin de semana</option>
         </select>
       </form>
       </header>
